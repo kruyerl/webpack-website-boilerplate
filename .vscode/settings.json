@@ -1,8 +1,11 @@
 {
     "files.exclude": {
         ".vscode": true,
-        "**/.git": false,
-        "node_modules": true
+        "**/.git": true,
+        "node_modules": true,
+        ".gitignore": true,
+        "package-lock.json": true,
+        ".babelrc": false,
     },
     "git.ignoreLimitWarning": true
 }

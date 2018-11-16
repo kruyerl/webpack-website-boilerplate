@@ -9,7 +9,6 @@ const PurifyCSSPlugin = require('purifycss-webpack')
 //TODO: Image Duplication
 //TODO: React
 //TODO: Tree Shaking
-//TODO: GIT REPO
 module.exports = env => {
     let devMode = env.development
 
@@ -22,27 +21,26 @@ module.exports = env => {
             path: path.resolve(__dirname, 'dist'),
             filename: './[name].bundle.[hash].js'
         },
-
         module: {
             rules: [
-                {
+                { // Styles
                   test: /\.(sa|sc|c)ss$/,
                   use: [
                     devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader',
                   ],
-                },
-                { 
+                }, { // JS
                     test: /\.js$/, 
                     exclude: /node_modules/, 
                     loader: "babel-loader" 
-                },
-                {
+                }, { // Images
                     test: /\.(png|jp(e*)g|gif|svg)$/,
-                    use: ['file-loader?name=img/[name][hash:6].[ext]','image-webpack-loader'] 
-                },
-                {
+                    use: ['file-loader?name=img/[name].[ext]?[hash:5]','image-webpack-loader'] 
+                }, { // Fonts
+                    test: /\.(woff|woff2|ttf|eot)$/,
+                    loader: 'file-loader?name=fonts/[name].[ext]'
+                }, { // Favicon
                     test: /\.(ico)$/,
                     use: 'file-loader?name=[name].[ext]' 
                 },
@@ -54,7 +52,7 @@ module.exports = env => {
             port: 9000,
             hot: true,
             stats: "errors-only",
-            open: true,
+            open: false,
         },
         plugins: [  
             //Pages
