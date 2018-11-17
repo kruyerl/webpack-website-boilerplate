@@ -29,3 +29,6 @@ Temporary Items
 
 ### NodeJS ###
 node_modules
+
+### Dist ###
+dist

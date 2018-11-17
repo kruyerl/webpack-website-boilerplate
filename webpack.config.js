@@ -4,13 +4,17 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const webpack = require('webpack')
 const glob = require('glob')
 const PurifyCSSPlugin = require('purifycss-webpack')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-//TODO: asset Duplication
-//TODO: Image Duplication
-//TODO: React
-//TODO: Tree Shaking
 module.exports = env => {
     let devMode = env.development
+    let prodMode = env.production
+    
+    if (env.production == true) {
+        mode: 'production'
+    } else {
+        mode: 'development'
+    }
 
     return {
         entry: {
@@ -19,7 +23,15 @@ module.exports = env => {
         },
         output: {
             path: path.resolve(__dirname, 'dist'),
-            filename: './[name].bundle.[hash].js'
+            filename: './[name].bundle.[hash:5].js'
+        },
+        devServer: {
+            contentBase: path.join(__dirname, "dist"),
+            compress: true,
+            port: 9000,
+            hot: true,
+            stats: "errors-only",
+            open: false,
         },
         module: {
             rules: [
@@ -43,16 +55,8 @@ module.exports = env => {
                 }, { // Favicon
                     test: /\.(ico)$/,
                     use: 'file-loader?name=[name].[ext]' 
-                },
+                }, 
             ]
-        },
-        devServer: {
-            contentBase: path.join(__dirname, "dist"),
-            compress: true,
-            port: 9000,
-            hot: true,
-            stats: "errors-only",
-            open: false,
         },
         plugins: [  
             //Pages
@@ -76,8 +80,8 @@ module.exports = env => {
 
 
             new MiniCssExtractPlugin({
-                filename: devMode ? '[name].css' : '[name].[hash].css',
-                chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+                filename: devMode ? '[name].css' : '[name].[hash:5].css',
+                chunkFilename: devMode ? '[id].css' : '[id].[hash:5].css',
             }),
             new webpack.HotModuleReplacementPlugin(),
             new webpack.NamedModulesPlugin(),
@@ -85,5 +89,22 @@ module.exports = env => {
                 paths: glob.sync(path.join(__dirname, 'src/*.html'))
             })
         ],
+         
+        optimization: {
+            minimize: prodMode, 
+            minimizer: [new UglifyJsPlugin({
+                uglifyOptions: {
+                  warnings: false,
+                  parse: {},
+                  compress: {},
+                  mangle: true, // Note `mangle.properties` is `false` by default.
+                  output: null,
+                  toplevel: false,
+                  nameCache: null,
+                  ie8: false,
+                  keep_fnames: false,
+                }
+              })]
+        }
     }
 }

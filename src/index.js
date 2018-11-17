@@ -21,9 +21,10 @@ class LukeKruyerReact extends React.Component {
   
   render () {
     return <div className='lukeKruyerReact'>
-
-      <h1>Hi :)</h1>
-      <Hero/>
+      <div >
+        <Hero/>
+      </div>
+        
     </div>
   }
 }
