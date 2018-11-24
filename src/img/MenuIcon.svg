@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="20px" viewBox="0 0 22 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Menu Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HomePage-Copy" transform="translate(-969.000000, -83.000000)" fill="#3EE6B1">
+            <g id="Landing">
+                <g id="Nav" transform="translate(934.000000, 48.000000)">
+                    <g id="Menu-Icon" transform="translate(35.000000, 35.000000)">
+                        <path d="M1,2 C0.44771525,2 0,1.55228475 0,1 C0,0.44771525 0.44771525,0 1,0 L21,0 C21.5522847,0 22,0.44771525 22,1 C22,1.55228475 21.5522847,2 21,2 L1,2 Z M1,8 C0.44771525,8 0,7.55228475 0,7 C0,6.44771525 0.44771525,6 1,6 L21,6 C21.5522847,6 22,6.44771525 22,7 C22,7.55228475 21.5522847,8 21,8 L1,8 Z M1,14 C0.44771525,14 0,13.5522847 0,13 C0,12.4477153 0.44771525,12 1,12 L21,12 C21.5522847,12 22,12.4477153 22,13 C22,13.5522847 21.5522847,14 21,14 L1,14 Z M1,20 C0.44771525,20 0,19.5522847 0,19 C0,18.4477153 0.44771525,18 1,18 L14.5,18 C15.0522847,18 15.5,18.4477153 15.5,19 C15.5,19.5522847 15.0522847,20 14.5,20 L1,20 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
