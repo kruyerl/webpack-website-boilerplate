@@ -70,6 +70,8 @@ module.exports = env => {
       // Pages
       new HtmlWebpackPlugin({
         title: 'LDKcreatives - Home',
+        description: '',
+        keywords: '',
         hash: true,
         minify: { collapseWhitespace: true },
         template: './src/index.html',
@@ -78,6 +80,8 @@ module.exports = env => {
       }),
       new HtmlWebpackPlugin({
         title: 'LDKcreatives - Contact',
+        description: '',
+        keywords: '',
         hash: true,
         minify: { collapseWhitespace: true },
         template: './src/contact.html',
