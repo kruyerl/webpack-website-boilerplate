@@ -8,7 +8,7 @@ import NotFound from './views/NotFound';
 const AppRouter = () => (
   <Router>
     <Switch>
-      <Route path="/" exact component={UnderConstruction} />
+      <Route path="/" exact component={App} />
       <Route component={NotFound} />
     </Switch>
   </Router>
